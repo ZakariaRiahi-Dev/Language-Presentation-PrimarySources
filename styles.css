@@ -1,0 +1,201 @@
+:root {
+  --ink: #1c1410;
+  --maple: #8B1A1A;
+  --maple-light: #b52c2c;
+  --parchment: #f0e6cc;
+  --parchment-dark: #ddd0aa;
+  --parchment-mid: #e8d9b8;
+  --aged: #c8b890;
+  --navy: #1a2744;
+  --sepia: #7a5c3a;
+  --rule: #6b4e2a;
+  --faded: #9c8060;
+  --green-ink: #1a3a1a;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: 'Libre Baskerville', Georgia, serif;
+  overflow-x: hidden;
+}
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 1000; opacity: 0.4;
+}
+
+/* ── MASTHEAD ── */
+.masthead { background: var(--navy); color: var(--parchment); text-align: center; border-bottom: 6px double var(--maple); }
+.masthead-ribbon { background: var(--maple); font-family: 'IM Fell English SC', serif; font-size: 0.7rem; letter-spacing: 0.25em; padding: 6px 0; color: var(--parchment); }
+.masthead-inner { padding: 28px 20px 20px; }
+.masthead-eyebrow { font-family: 'Special Elite', monospace; font-size: 0.65rem; letter-spacing: 0.35em; color: var(--aged); text-transform: uppercase; margin-bottom: 10px; }
+.masthead h1 { font-family: 'IM Fell English', serif; font-size: clamp(2.2rem, 6vw, 4.8rem); line-height: 1; color: var(--parchment); text-shadow: 2px 2px 0 rgba(0,0,0,0.4); }
+.masthead h1 em { font-style: italic; color: var(--aged); }
+.masthead-rule { display: flex; align-items: center; justify-content: center; gap: 12px; margin: 14px auto; max-width: 500px; }
+.masthead-rule::before, .masthead-rule::after { content: ''; flex: 1; height: 1px; background: var(--maple); }
+.masthead-rule span { font-size: 1.2rem; color: var(--maple); }
+.masthead-sub { font-family: 'Libre Baskerville', serif; font-style: italic; font-size: 0.95rem; color: var(--aged); max-width: 560px; margin: 0 auto 18px; line-height: 1.6; }
+.masthead-date { font-family: 'Special Elite', monospace; font-size: 0.65rem; letter-spacing: 0.2em; color: var(--faded); padding-bottom: 20px; }
+
+/* ── NAV ── */
+.sport-nav { background: var(--navy); border-bottom: 3px solid var(--maple); display: flex; flex-wrap: wrap; justify-content: center; position: sticky; top: 0; z-index: 100; }
+.sport-nav button { background: transparent; border: none; border-right: 1px solid rgba(255,255,255,0.1); color: var(--aged); font-family: 'IM Fell English SC', serif; font-size: 0.78rem; letter-spacing: 0.12em; padding: 12px 16px; cursor: pointer; transition: background 0.2s, color 0.2s; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.sport-nav button .nav-icon { font-size: 1.1rem; }
+.sport-nav button:hover { background: rgba(139,26,26,0.3); color: var(--parchment); }
+.sport-nav button.active { background: var(--maple); color: var(--parchment); }
+
+/* ── MAIN ── */
+main { max-width: 1100px; margin: 0 auto; padding: 0 16px 80px; }
+
+/* ── INTRO ── */
+.broadsheet-intro { display: grid; grid-template-columns: 1fr 2px 1fr; gap: 0 28px; padding: 36px 0 32px; border-bottom: 2px solid var(--rule); }
+.broadsheet-intro .col-rule { background: var(--rule); margin: 4px 0; }
+.broadsheet-intro p { font-size: 0.95rem; line-height: 1.8; color: var(--sepia); font-style: italic; }
+.broadsheet-intro p:first-child::first-letter { font-family: 'IM Fell English', serif; font-size: 4.2em; float: left; line-height: 0.75; margin: 4px 8px 0 0; color: var(--maple); }
+@media (max-width: 600px) { .broadsheet-intro { grid-template-columns: 1fr; } .broadsheet-intro .col-rule { display: none; } }
+
+/* ── SECTIONS ── */
+.sport-section { display: none; animation: fadeIn 0.35s ease; }
+.sport-section.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+.section-header { padding: 32px 0 18px; border-bottom: 3px double var(--rule); margin-bottom: 28px; }
+.section-header .sport-label { font-family: 'Special Elite', monospace; font-size: 0.62rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--maple); margin-bottom: 6px; }
+.section-header h2 { font-family: 'IM Fell English', serif; font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.05; color: var(--navy); }
+.section-header .section-intro { margin-top: 10px; font-style: italic; color: var(--sepia); font-size: 0.92rem; line-height: 1.7; max-width: 620px; }
+
+/* ── TIMELINE ── */
+.timeline { position: relative; padding-left: 40px; }
+.timeline::before { content: ''; position: absolute; left: 12px; top: 6px; bottom: 6px; width: 2px; background: repeating-linear-gradient(to bottom, var(--rule) 0px, var(--rule) 8px, transparent 8px, transparent 14px); }
+.milestone { position: relative; margin-bottom: 0; }
+.milestone::before { content: ''; position: absolute; left: -32px; top: 22px; width: 12px; height: 12px; border-radius: 50%; background: var(--parchment); border: 2px solid var(--maple); transition: background 0.2s, transform 0.2s; z-index: 2; }
+.milestone:hover::before, .milestone.open::before { background: var(--maple); transform: scale(1.3); }
+
+.milestone-header { display: flex; align-items: flex-start; gap: 14px; padding: 18px 0 18px 4px; border-bottom: 1px solid var(--parchment-dark); cursor: pointer; transition: background 0.15s; }
+.milestone:hover .milestone-header { background: rgba(139,26,26,0.04); }
+.milestone-year { font-family: 'IM Fell English SC', serif; font-size: 1.05rem; color: var(--maple); min-width: 58px; padding-top: 2px; }
+.milestone-title { flex: 1; }
+.milestone-title h3 { font-family: 'IM Fell English', serif; font-size: 1.2rem; color: var(--navy); line-height: 1.25; }
+.milestone-title .milestone-tag { display: inline-block; font-family: 'Special Elite', monospace; font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--faded); margin-top: 3px; }
+.milestone-toggle { font-size: 0.8rem; color: var(--faded); padding-top: 4px; transition: transform 0.25s; flex-shrink: 0; }
+.milestone.open .milestone-toggle { transform: rotate(180deg); }
+
+/* ── ACCORDION DETAIL ── */
+.milestone-detail { max-height: 0; overflow: hidden; transition: max-height 0.5s ease; }
+.milestone.open .milestone-detail { max-height: 3000px; }
+
+.milestone-detail-inner { padding: 22px 0 28px 4px; border-bottom: 2px solid var(--parchment-dark); }
+
+/* Top row: account + source citation */
+.detail-top { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 20px; }
+@media (max-width: 680px) { .detail-top { grid-template-columns: 1fr; } }
+
+.detail-card { background: rgba(255,255,255,0.35); border: 1px solid var(--parchment-dark); border-left: 3px solid var(--maple); padding: 14px 16px; }
+.detail-card h4 { font-family: 'Special Elite', monospace; font-size: 0.58rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--maple); margin-bottom: 8px; }
+.detail-card p { font-size: 0.88rem; line-height: 1.75; color: var(--sepia); }
+
+.source-card { border-left-color: var(--navy); background: rgba(26,39,68,0.04); }
+.source-card h4 { color: var(--navy); }
+.source-doc { font-family: 'IM Fell English', serif; font-style: italic; font-size: 0.92rem; color: var(--navy); margin-bottom: 6px; }
+.source-detail-text { font-size: 0.85rem; line-height: 1.7; color: var(--sepia); margin-bottom: 8px; }
+.source-date-badge { font-family: 'Special Elite', monospace; font-size: 0.68rem; color: var(--faded); }
+
+/* Source URL link */
+.source-url-row { margin-top: 8px; }
+.source-url-row a { font-family: 'Special Elite', monospace; font-size: 0.68rem; color: var(--maple); text-decoration: underline; word-break: break-all; }
+.source-url-row a:hover { color: var(--maple-light); }
+
+/* ── PRIMARY SOURCE EVIDENCE BOX ── */
+.evidence-box {
+  background: var(--parchment-mid);
+  border: 1px solid var(--aged);
+  border-top: 4px solid var(--sepia);
+  padding: 18px 20px;
+  position: relative;
+}
+.evidence-box::before {
+  content: 'PRIMARY SOURCE EVIDENCE';
+  position: absolute; top: -1px; left: 16px;
+  font-family: 'Special Elite', monospace; font-size: 0.52rem; letter-spacing: 0.35em;
+  background: var(--sepia); color: var(--parchment); padding: 2px 8px;
+}
+
+.evidence-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 6px; }
+@media (max-width: 680px) { .evidence-grid { grid-template-columns: 1fr; } }
+
+/* Image upload zone */
+.img-upload-zone {
+  border: 2px dashed var(--aged);
+  background: rgba(255,255,255,0.4);
+  min-height: 180px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  cursor: pointer; position: relative; overflow: hidden;
+  transition: border-color 0.2s, background 0.2s;
+}
+.img-upload-zone:hover { border-color: var(--sepia); background: rgba(255,255,255,0.6); }
+.img-upload-zone.has-image { border-style: solid; border-color: var(--sepia); }
+.img-upload-zone input[type=file] { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
+.img-upload-zone img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #fff; padding: 4px; }
+.img-upload-placeholder { text-align: center; pointer-events: none; }
+.img-upload-placeholder .upload-icon { font-size: 2rem; color: var(--aged); margin-bottom: 6px; }
+.img-upload-placeholder p { font-family: 'Special Elite', monospace; font-size: 0.62rem; letter-spacing: 0.15em; color: var(--faded); line-height: 1.6; }
+.img-upload-placeholder span { font-size: 0.58rem; color: var(--aged); display: block; margin-top: 4px; }
+.img-clear-btn { position: absolute; top: 6px; right: 6px; background: var(--maple); color: #fff; border: none; border-radius: 50%; width: 22px; height: 22px; font-size: 0.7rem; cursor: pointer; display: none; z-index: 3; line-height: 22px; text-align: center; }
+.img-upload-zone.has-image .img-clear-btn { display: block; }
+
+/* Caption field */
+.img-caption-field {
+  width: 100%; margin-top: 6px;
+  background: transparent; border: none; border-bottom: 1px solid var(--aged);
+  font-family: 'IM Fell English', serif; font-style: italic; font-size: 0.78rem;
+  color: var(--sepia); padding: 4px 2px; outline: none;
+  transition: border-color 0.2s;
+}
+.img-caption-field:focus { border-bottom-color: var(--sepia); }
+.img-caption-field::placeholder { color: var(--aged); }
+
+/* Transcription / notes textarea */
+.transcription-area {
+  width: 100%; min-height: 140px; resize: vertical;
+  background: rgba(255,255,255,0.5);
+  border: 1px solid var(--aged); border-left: 3px solid var(--green-ink);
+  font-family: 'Special Elite', monospace; font-size: 0.78rem;
+  color: var(--green-ink); line-height: 1.8; padding: 10px 12px;
+  outline: none; transition: border-color 0.2s;
+}
+.transcription-area:focus { border-color: var(--green-ink); background: rgba(255,255,255,0.7); }
+.transcription-area::placeholder { color: #a8b89a; font-style: italic; }
+.transcription-label { font-family: 'Special Elite', monospace; font-size: 0.58rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--green-ink); margin-bottom: 5px; opacity: 0.7; }
+
+/* ── SUMMARY TABLE ── */
+.summary-wrap { padding-top: 28px; }
+.summary-wrap h2 { font-family: 'IM Fell English', serif; font-size: 1.8rem; color: var(--navy); text-align: center; margin-bottom: 6px; }
+.summary-sub { text-align: center; font-style: italic; color: var(--faded); font-size: 0.85rem; margin-bottom: 24px; }
+.summary-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+.summary-table thead tr { background: var(--navy); color: var(--parchment); }
+.summary-table thead th { font-family: 'IM Fell English SC', serif; font-size: 0.78rem; letter-spacing: 0.1em; padding: 10px 14px; text-align: left; }
+.summary-table tbody tr { border-bottom: 1px solid var(--parchment-dark); transition: background 0.15s; }
+.summary-table tbody tr:hover { background: rgba(139,26,26,0.07); }
+.summary-table tbody td { padding: 10px 14px; vertical-align: top; color: var(--sepia); line-height: 1.5; }
+.summary-table tbody td:first-child { font-family: 'IM Fell English SC', serif; color: var(--navy); }
+.summary-table td.year-cell { font-family: 'Special Elite', monospace; color: var(--maple); white-space: nowrap; }
+.summary-table td.src-cell { font-style: italic; color: var(--faded); font-size: 0.8rem; }
+.summary-table td.src-cell a { color: var(--maple); text-decoration: underline; font-style: normal; font-family: 'Special Elite', monospace; font-size: 0.7rem; display: block; margin-top: 3px; word-break: break-all; }
+
+/* ── ALL-SPORTS VIEW ── */
+.sport-block { margin-bottom: 44px; padding-bottom: 32px; border-bottom: 2px solid var(--parchment-dark); }
+.sport-block-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 10px; }
+.sport-block-head h2 { font-family: 'IM Fell English', serif; font-size: 1.7rem; color: var(--navy); }
+.sport-block-head .sport-mini-label { font-family: 'Special Elite', monospace; font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--maple); }
+.maple-divider { text-align: center; color: var(--maple); font-size: 1rem; margin: 4px 0 10px; opacity: 0.45; letter-spacing: 10px; }
+
+/* ── FOOTER ── */
+footer { background: var(--navy); color: var(--faded); text-align: center; padding: 28px 20px; border-top: 4px double var(--maple); font-family: 'Special Elite', monospace; font-size: 0.65rem; letter-spacing: 0.2em; line-height: 2; }
+.footer-rule { width: 60px; height: 1px; background: var(--maple); margin: 12px auto; }
+
+/* Print hint */
+.print-hint { text-align: right; font-family: 'Special Elite', monospace; font-size: 0.6rem; letter-spacing: 0.15em; color: var(--faded); padding: 8px 4px 0; }
+.print-hint button { background: none; border: 1px solid var(--aged); color: var(--faded); font-family: 'Special Elite', monospace; font-size: 0.6rem; letter-spacing: 0.1em; padding: 3px 10px; cursor: pointer; }
+.print-hint button:hover { background: var(--maple); color: #fff; border-color: var(--maple); }
