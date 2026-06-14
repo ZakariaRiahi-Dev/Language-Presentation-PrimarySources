@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Sporting Life of Canada · 1890–1916</title>
+<link href="styles.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-ribbon">Sports In Canada &nbsp;·&nbsp; 1890-1916 &nbsp;·&nbsp; Made by &nbsp;·&nbsp; Adam, Ahmed, Zakaria & Heyzac</div>
+  <div class="masthead-inner">
+    <div class="masthead-eyebrow">A Complete Historical Account</div>
+    <h1>The Sporting Life<br>of <em>Canada</em></h1>
+    <div class="masthead-rule"><span>✦</span></div>
+    <p class="masthead-sub">A Faithful Chronicle of Athletic Achievement, Organized Recreation, and the Rise of Modern Sport across the Dominion, from the Year Eighteen Hundred and Ninety to Nineteen Sixteen.</p>
+    <div class="masthead-date">Volume I &nbsp;·&nbsp; 1890–1916 &nbsp;·&nbsp; Compiled from Primary Sources</div>
+  </div>
+</header>
+
+<nav class="sport-nav" id="sport-nav">
+  <button class="active" data-section="all-sports" onclick="showSection('all-sports',this)"><span class="nav-icon">🍁</span>All Sports</button>
+  <button data-section="ice-hockey" onclick="showSection('ice-hockey',this)"><span class="nav-icon">🏒</span>Ice Hockey</button>
+  <button data-section="basketball" onclick="showSection('basketball',this)"><span class="nav-icon">🏀</span>Basketball</button>
+  <button data-section="soccer" onclick="showSection('soccer',this)"><span class="nav-icon">⚽</span>Soccer</button>
+  <button data-section="bicycling" onclick="showSection('bicycling',this)"><span class="nav-icon">🚲</span>Bicycling</button>
+  <button data-section="baseball" onclick="showSection('baseball',this)"><span class="nav-icon">⚾</span>Baseball</button>
+  <button data-section="curling" onclick="showSection('curling',this)"><span class="nav-icon">🥌</span>Curling</button>
+  <button data-section="summary" onclick="showSection('summary',this)"><span class="nav-icon">📜</span>Record</button>
+</nav>
+
+<main>
+
+<div class="broadsheet-intro" id="intro-text">
+  <p>In the latter decades of the nineteenth century and the opening years of the twentieth, the Dominion of Canada witnessed a most remarkable transformation in the character of its public leisure. Sports once confined to informal pastures and frozen ponds were codified, organized, and elevated to the status of national institutions. From the invention of Basketball by a Canadian physician in Massachusetts, to the first golden triumph of Galt F.C. upon the Olympic stage, the records herein presented document a people actively fashioning a sporting identity of their own.</p>
+  <div class="col-rule"></div>
+  <p>The primary sources consulted — club minutebooks, newspaper accounts, personal published memoirs, and official correspondence — provide an unusually direct window into the era. Lord Stanley's letter of intent, the by-laws of the Ottawa Bicycle Club, and the original thirteen rules published in <em>The Triangle</em> all survive to speak plainly across the years. Each milestone below may be expanded to reveal its source record; researchers may attach archival images and transcriptions directly to each entry.</p>
+</div>
+
+<!-- ═══ ALL SPORTS ═══ -->
+<section class="sport-section active" id="all-sports">
+  <div style="height:24px"></div>
+  <div class="sport-block"><div class="sport-block-head"><span class="sport-mini-label">🏒</span><h2>Ice Hockey</h2></div><div class="maple-divider">· · ·</div><div class="timeline" id="hockey-tl-mini"></div></div>
+  <div class="sport-block"><div class="sport-block-head"><span class="sport-mini-label">🏀</span><h2>Basketball</h2></div><div class="maple-divider">· · ·</div><div class="timeline" id="basketball-tl-mini"></div></div>
+  <div class="sport-block"><div class="sport-block-head"><span class="sport-mini-label">⚽</span><h2>Association Football</h2></div><div class="maple-divider">· · ·</div><div class="timeline" id="soccer-tl-mini"></div></div>
+  <div class="sport-block"><div class="sport-block-head"><span class="sport-mini-label">🚲</span><h2>Bicycling</h2></div><div class="maple-divider">· · ·</div><div class="timeline" id="bicycling-tl-mini"></div></div>
+  <div class="sport-block"><div class="sport-block-head"><span class="sport-mini-label">⚾</span><h2>Baseball</h2></div><div class="maple-divider">· · ·</div><div class="timeline" id="baseball-tl-mini"></div></div>
+  <div class="sport-block"><div class="sport-block-head"><span class="sport-mini-label">🥌</span><h2>Curling</h2></div><div class="maple-divider">· · ·</div><div class="timeline" id="curling-tl-mini"></div></div>
+</section>
+
+<!-- ═══ ICE HOCKEY ═══ -->
+<section class="sport-section" id="ice-hockey">
+  <div class="section-header">
+    <div class="sport-label">🏒 Ice Hockey</div>
+    <h2>Canada's Royal<br>Winter Game</h2>
+    <p class="section-intro">Though structured play commenced in 1875, the period from 1891 to 1899 saw hockey transformed from a regional pastime into a national institution — with a coveted silver trophy and the first comprehensive printed rulebook.</p>
+  </div>
+  <div class="timeline" id="hockey-tl"></div>
+</section>
+
+<!-- ═══ BASKETBALL ═══ -->
+<section class="sport-section" id="basketball">
+  <div class="section-header">
+    <div class="sport-label">🏀 Basketball</div>
+    <h2>Naismith's Invention:<br>Peach Baskets &amp; Thirteen Rules</h2>
+    <p class="section-intro">A Canadian physician training in Massachusetts devised the game in a single afternoon. Within three years, his countrymen had carried it home across the border through the YMCA network.</p>
+  </div>
+  <div class="timeline" id="basketball-tl"></div>
+</section>
+
+<!-- ═══ SOCCER ═══ -->
+<section class="sport-section" id="soccer">
+  <div class="section-header">
+    <div class="sport-label">⚽ Soccer</div>
+    <h2>Association Football<br>Takes Root</h2>
+    <p class="section-intro">From the formation of British Columbia's governing body in 1891 to Galt F.C.'s Olympic gold and the founding of a national association, organized soccer in Canada came of age within a single generation.</p>
+  </div>
+  <div class="timeline" id="soccer-tl"></div>
+</section>
+
+<!-- ═══ BICYCLING ═══ -->
+<section class="sport-section" id="bicycling">
+  <div class="section-header">
+    <div class="sport-label">🚲 Bicycling</div>
+    <h2>"All Hot for Wheels":<br>The Safety Bicycle Craze</h2>
+    <p class="section-intro">The advent of the safety bicycle sparked a mania that swept Canadian cities. Club by-laws were drafted, ladies took to two wheels, and newspapers declared the nation utterly obsessed.</p>
+  </div>
+  <div class="timeline" id="bicycling-tl"></div>
+</section>
+
+<!-- ═══ BASEBALL ═══ -->
+<section class="sport-section" id="baseball">
+  <div class="section-header">
+    <div class="sport-label">⚾ Baseball</div>
+    <h2>The Professional<br>Game Arrives</h2>
+    <p class="section-intro">Long played in amateur form, professional baseball arrived in the capital when the Ottawa Citizen mounted a public campaign to bring an Eastern League franchise to the city.</p>
+  </div>
+  <div class="timeline" id="baseball-tl"></div>
+</section>
+
+<!-- ═══ CURLING ═══ -->
+<section class="sport-section" id="curling">
+  <div class="section-header">
+    <div class="sport-label">🥌 Curling</div>
+    <h2>Ladies on the Ice:<br>Organized Curling</h2>
+    <p class="section-intro">Women's curling formalized its presence with the establishment of a permanent Ladies Curling Association in 1904, its minutebooks surviving as direct testament to the era's organizational spirit.</p>
+  </div>
+  <div class="timeline" id="curling-tl"></div>
+</section>
+
+<!-- ═══ SUMMARY RECORD ═══ -->
+<section class="sport-section" id="summary">
+  <div class="summary-wrap">
+    <h2>The Official Record</h2>
+    <p class="summary-sub">All milestones, 1890–1916, compiled from primary sources</p>
+    <table class="summary-table">
+      <thead><tr><th>Sport</th><th>Year</th><th>Milestone</th><th>Primary Source &amp; Link</th></tr></thead>
+      <tbody id="summary-tbody"></tbody>
+    </table>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div>The Dominion Sporting Record &nbsp;·&nbsp; Historical Archives of Canadian Sport &nbsp;·&nbsp; 1890–1916</div>
+  <div class="footer-rule"></div>
+  <div>Sources: Library and Archives Canada · Canadian Soccer Association · Springfield College · Toronto Mail and Empire · Ottawa Citizen · Canadiana Digital Archives</div>
+  <div class="footer-rule"></div>
+  <div>🍁 &nbsp; Compiled in service of the historical record &nbsp; 🍁</div>
+</footer>
+</body>
+</html>
