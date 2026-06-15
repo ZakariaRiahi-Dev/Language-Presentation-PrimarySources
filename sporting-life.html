@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Sporting Life of Canada · 1890–1916</title>
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1c1410;
+  --maple: #8B1A1A;
+  --maple-light: #b52c2c;
+  --parchment: #f0e6cc;
+  --parchment-dark: #ddd0aa;
+  --parchment-mid: #e8d9b8;
+  --aged: #c8b890;
+  --navy: #1a2744;
+  --sepia: #7a5c3a;
+  --rule: #6b4e2a;
+  --faded: #9c8060;
+  --green-ink: #1a3a1a;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: 'Libre Baskerville', Georgia, serif;
+  overflow-x: hidden;
+}
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 1000; opacity: 0.4;
+}
+
+/* ── MASTHEAD ── */
+.masthead { background: var(--navy); color: var(--parchment); text-align: center; border-bottom: 6px double var(--maple); }
+.masthead-ribbon { background: var(--maple); font-family: 'IM Fell English SC', serif; font-size: 0.7rem; letter-spacing: 0.25em; padding: 6px 0; color: var(--parchment); }
+.masthead-inner { padding: 28px 20px 20px; }
+.masthead-eyebrow { font-family: 'Special Elite', monospace; font-size: 0.65rem; letter-spacing: 0.35em; color: var(--aged); text-transform: uppercase; margin-bottom: 10px; }
+.masthead h1 { font-family: 'IM Fell English', serif; font-size: clamp(2.2rem, 6vw, 4.8rem); line-height: 1; color: var(--parchment); text-shadow: 2px 2px 0 rgba(0,0,0,0.4); }
+.masthead h1 em { font-style: italic; color: var(--aged); }
+.masthead-rule { display: flex; align-items: center; justify-content: center; gap: 12px; margin: 14px auto; max-width: 500px; }
+.masthead-rule::before, .masthead-rule::after { content: ''; flex: 1; height: 1px; background: var(--maple); }
+.masthead-rule span { font-size: 1.2rem; color: var(--maple); }
+.masthead-sub { font-family: 'Libre Baskerville', serif; font-style: italic; font-size: 0.95rem; color: var(--aged); max-width: 560px; margin: 0 auto 18px; line-height: 1.6; }
+.masthead-date { font-family: 'Special Elite', monospace; font-size: 0.65rem; letter-spacing: 0.2em; color: var(--faded); padding-bottom: 20px; }
+
+/* ── NAV ── */
+.sport-nav { background: var(--navy); border-bottom: 3px solid var(--maple); display: flex; flex-wrap: wrap; justify-content: center; position: sticky; top: 0; z-index: 100; }
+.sport-nav button { background: transparent; border: none; border-right: 1px solid rgba(255,255,255,0.1); color: var(--aged); font-family: 'IM Fell English SC', serif; font-size: 0.78rem; letter-spacing: 0.12em; padding: 12px 16px; cursor: pointer; transition: background 0.2s, color 0.2s; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.sport-nav button .nav-icon { font-size: 1.1rem; }
+.sport-nav button:hover { background: rgba(139,26,26,0.3); color: var(--parchment); }
+.sport-nav button.active { background: var(--maple); color: var(--parchment); }
+
+/* ── MAIN ── */
+main { max-width: 1100px; margin: 0 auto; padding: 0 16px 80px; }
+
+/* ── INTRO ── */
+.broadsheet-intro { display: grid; grid-template-columns: 1fr 2px 1fr; gap: 0 28px; padding: 36px 0 32px; border-bottom: 2px solid var(--rule); }
+.broadsheet-intro .col-rule { background: var(--rule); margin: 4px 0; }
+.broadsheet-intro p { font-size: 0.95rem; line-height: 1.8; color: var(--sepia); font-style: italic; }
+.broadsheet-intro p:first-child::first-letter { font-family: 'IM Fell English', serif; font-size: 4.2em; float: left; line-height: 0.75; margin: 4px 8px 0 0; color: var(--maple); }
+@media (max-width: 600px) { .broadsheet-intro { grid-template-columns: 1fr; } .broadsheet-intro .col-rule { display: none; } }
+
+/* ── SECTIONS ── */
+.sport-section { display: none; animation: fadeIn 0.35s ease; }
+.sport-section.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+.section-header { padding: 32px 0 18px; border-bottom: 3px double var(--rule); margin-bottom: 28px; }
+.section-header .sport-label { font-family: 'Special Elite', monospace; font-size: 0.62rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--maple); margin-bottom: 6px; }
+.section-header h2 { font-family: 'IM Fell English', serif; font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.05; color: var(--navy); }
+.section-header .section-intro { margin-top: 10px; font-style: italic; color: var(--sepia); font-size: 0.92rem; line-height: 1.7; max-width: 620px; }
+
+/* ── TIMELINE ── */
+.timeline { position: relative; padding-left: 40px; }
+.timeline::before { content: ''; position: absolute; left: 12px; top: 6px; bottom: 6px; width: 2px; background: repeating-linear-gradient(to bottom, var(--rule) 0px, var(--rule) 8px, transparent 8px, transparent 14px); }
+.milestone { position: relative; margin-bottom: 0; }
+.milestone::before { content: ''; position: absolute; left: -32px; top: 22px; width: 12px; height: 12px; border-radius: 50%; background: var(--parchment); border: 2px solid var(--maple); transition: background 0.2s, transform 0.2s; z-index: 2; }
+.milestone:hover::before, .milestone.open::before { background: var(--maple); transform: scale(1.3); }
+
+.milestone-header { display: flex; align-items: flex-start; gap: 14px; padding: 18px 0 18px 4px; border-bottom: 1px solid var(--parchment-dark); cursor: pointer; transition: background 0.15s; }
+.milestone:hover .milestone-header { background: rgba(139,26,26,0.04); }
+.milestone-year { font-family: 'IM Fell English SC', serif; font-size: 1.05rem; color: var(--maple); min-width: 58px; padding-top: 2px; }
+.milestone-title { flex: 1; }
+.milestone-title h3 { font-family: 'IM Fell English', serif; font-size: 1.2rem; color: var(--navy); line-height: 1.25; }
+.milestone-title .milestone-tag { display: inline-block; font-family: 'Special Elite', monospace; font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--faded); margin-top: 3px; }
+.milestone-toggle { font-size: 0.8rem; color: var(--faded); padding-top: 4px; transition: transform 0.25s; flex-shrink: 0; }
+.milestone.open .milestone-toggle { transform: rotate(180deg); }
+
+/* ── ACCORDION DETAIL ── */
+.milestone-detail { max-height: 0; overflow: hidden; transition: max-height 0.5s ease; }
+.milestone.open .milestone-detail { max-height: 4000px; }
+.milestone-detail-inner { padding: 22px 0 28px 4px; border-bottom: 2px solid var(--parchment-dark); }
+
+.detail-top { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 20px; }
+@media (max-width: 680px) { .detail-top { grid-template-columns: 1fr; } }
+
+.detail-card { background: rgba(255,255,255,0.35); border: 1px solid var(--parchment-dark); border-left: 3px solid var(--maple); padding: 14px 16px; }
+.detail-card h4 { font-family: 'Special Elite', monospace; font-size: 0.58rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--maple); margin-bottom: 8px; }
+.detail-card p { font-size: 0.88rem; line-height: 1.75; color: var(--sepia); }
+
+.source-card { border-left-color: var(--navy); background: rgba(26,39,68,0.04); }
+.source-card h4 { color: var(--navy); }
+.source-doc { font-family: 'IM Fell English', serif; font-style: italic; font-size: 0.92rem; color: var(--navy); margin-bottom: 6px; }
+.source-detail-text { font-size: 0.85rem; line-height: 1.7; color: var(--sepia); margin-bottom: 8px; }
+.source-date-badge { font-family: 'Special Elite', monospace; font-size: 0.68rem; color: var(--faded); }
+.source-url-row { margin-top: 8px; }
+.source-url-row a { font-family: 'Special Elite', monospace; font-size: 0.68rem; color: var(--maple); text-decoration: underline; word-break: break-all; }
+.source-url-row a:hover { color: var(--maple-light); }
+
+/* ── MILESTONE IMAGE ── */
+.milestone-image-wrap {
+  margin-top: 20px;
+  border: 1px solid var(--aged);
+  border-top: 4px solid var(--sepia);
+  background: var(--parchment-mid);
+  position: relative;
+}
+.milestone-image-wrap::before {
+  content: 'IMAGE';
+  position: absolute; top: -1px; left: 16px;
+  font-family: 'Special Elite', monospace; font-size: 0.52rem; letter-spacing: 0.35em;
+  background: var(--sepia); color: var(--parchment); padding: 2px 8px;
+}
+.milestone-image-wrap img {
+  display: block;
+  width: 100%;
+  max-height: 360px;
+  object-fit: contain;
+  background: #fff;
+  padding: 8px;
+}
+.milestone-image-caption {
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: 0.8rem;
+  color: var(--sepia);
+  padding: 8px 14px 12px;
+  line-height: 1.55;
+  border-top: 1px solid var(--parchment-dark);
+}
+
+/* ── MILESTONE VIDEO ── */
+.milestone-video-wrap {
+  margin-top: 20px;
+  border: 1px solid var(--aged);
+  border-top: 4px solid var(--sepia);
+  background: var(--parchment-mid);
+}
+.milestone-video-wrap video {
+  display: block;
+  width: 100%;
+  background: #000;
+}
+.milestone-video-label {
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: 0.8rem;
+  color: var(--sepia);
+  padding: 8px 14px 12px;
+  line-height: 1.55;
+  border-top: 1px solid var(--parchment-dark);
+}
+
+/* ── ALL-SPORTS VIEW ── */
+.sport-block { margin-bottom: 44px; padding-bottom: 32px; border-bottom: 2px solid var(--parchment-dark); }
+.sport-block-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 10px; }
+.sport-block-head h2 { font-family: 'IM Fell English', serif; font-size: 1.7rem; color: var(--navy); }
+.sport-block-head .sport-mini-label { font-family: 'Special Elite', monospace; font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--maple); }
+.maple-divider { text-align: center; color: var(--maple); font-size: 1rem; margin: 4px 0 10px; opacity: 0.45; letter-spacing: 10px; }
+
+/* ── THEN VS NOW ── */
+.sport-comparison { margin-bottom: 44px; padding-bottom: 36px; border-bottom: 2px solid var(--parchment-dark); }
+.sport-comparison:last-child { border-bottom: none; }
+.sport-label-row { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+.sport-icon-lg { font-size: 1.3rem; }
+.sport-name-lg { font-family: 'IM Fell English SC', serif; font-size: 1.3rem; color: var(--navy); }
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) 36px minmax(0,1fr);
+  gap: 0;
+  align-items: start;
+  width: 100%;
+}
+.milestone-col { min-width: 0; }
+.milestone-col.past { padding-right: 12px; }
+.milestone-col.present { padding-left: 12px; }
+
+.vs-divider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 36px;
+}
+.vs-divider::before {
+  content: '';
+  width: 1px;
+  height: 20px;
+  background: var(--parchment-dark);
+}
+.vs-badge {
+  font-family: 'IM Fell English SC', serif;
+  font-size: 0.65rem;
+  color: var(--maple);
+  background: var(--parchment-mid);
+  border: 2px solid var(--parchment-dark);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  line-height: 32px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.vs-divider::after {
+  content: '';
+  width: 1px;
+  flex: 1;
+  min-height: 20px;
+  background: var(--parchment-dark);
+}
+
+@media(max-width:620px) {
+  .comparison-grid { grid-template-columns: 1fr; gap: 12px; }
+  .vs-divider { display: none; }
+  .milestone-col.past, .milestone-col.present { padding: 0; }
+}
+
+.era-badge { display: inline-block; font-family: 'Special Elite', monospace; font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; padding: 3px 10px; margin-bottom: 10px; }
+.era-badge.past { background: var(--navy); color: var(--aged); }
+.era-badge.present { background: var(--maple); color: var(--parchment); }
+
+.tvn-milestone { background: rgba(255,255,255,0.3); border: 1px solid var(--parchment-dark); cursor: pointer; transition: background 0.15s; }
+.tvn-milestone:hover { background: rgba(139,26,26,0.06); }
+.tvn-milestone.open { background: rgba(255,255,255,0.5); }
+.tvn-header { display: flex; align-items: flex-start; gap: 12px; padding: 14px; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+.tvn-milestone.open .tvn-header { border-bottom-color: var(--parchment-dark); }
+.tvn-left { flex: 1; min-width: 0; }
+.tvn-year { font-family: 'IM Fell English SC', serif; font-size: 0.95rem; color: var(--maple); margin-bottom: 2px; }
+.tvn-title { font-family: 'IM Fell English', serif; font-size: 1.05rem; color: var(--navy); line-height: 1.25; }
+.tvn-tag { display: block; font-family: 'Special Elite', monospace; font-size: 0.52rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--faded); margin-top: 4px; }
+.tvn-toggle { font-size: 0.75rem; color: var(--faded); padding-top: 2px; transition: transform 0.25s; flex-shrink: 0; }
+.tvn-milestone.open .tvn-toggle { transform: rotate(180deg); }
+.tvn-body { max-height: 0; overflow: hidden; transition: max-height 0.5s ease; }
+.tvn-milestone.open .tvn-body { max-height: 2000px; }
+.tvn-inner { padding: 14px; }
+
+.key-change { background: rgba(139,26,26,0.05); border: 1px solid var(--parchment-dark); border-top: 3px solid var(--maple); padding: 14px 18px; margin-top: 16px; }
+.key-change h4 { font-family: 'Special Elite', monospace; font-size: 0.58rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--maple); margin-bottom: 8px; }
+.key-change p { font-size: 0.85rem; color: var(--sepia); line-height: 1.75; font-style: italic; }
+
+/* ── FOOTER ── */
+footer { background: var(--navy); color: var(--faded); text-align: center; padding: 28px 20px; border-top: 4px double var(--maple); font-family: 'Special Elite', monospace; font-size: 0.65rem; letter-spacing: 0.2em; line-height: 2; }
+.footer-rule { width: 60px; height: 1px; background: var(--maple); margin: 12px auto; }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-ribbon">The Dominion Sporting Record &nbsp;·&nbsp; Est. 1891 &nbsp;·&nbsp; Published at Ottawa, Ontario &nbsp;·&nbsp; One Penny</div>
+  <div class="masthead-inner">
+    <div class="masthead-eyebrow">A Complete Historical Account</div>
+    <h1>The Sporting Life<br>of <em>Canada</em></h1>
+    <div class="masthead-rule"><span>✦</span></div>
+    <p class="masthead-sub">A Faithful Chronicle of Athletic Achievement, Organized Recreation, and the Rise of Modern Sport across the Dominion, from the Year Eighteen Hundred and Ninety to Nineteen Sixteen.</p>
+    <div class="masthead-date">Volume I &nbsp;·&nbsp; 1890–1916 &nbsp;·&nbsp; Compiled from Primary Sources</div>
+  </div>
+</header>
+
+<nav class="sport-nav" id="sport-nav">
+  <button class="active" data-section="all-sports" onclick="showSection('all-sports',this)"><span class="nav-icon">🍁</span>All Sports</button>
+  <button data-section="basketball" onclick="showSection('basketball',this)"><span class="nav-icon">🏀</span>Basketball</button>
+  <button data-section="soccer" onclick="showSection('soccer',this)"><span class="nav-icon">⚽</span>Soccer</button>
+  <button data-section="summary" onclick="showSection('summary',this)"><span class="nav-icon">📜</span>Then VS Now</button>
+</nav>
+
+<main>
+
+<div class="broadsheet-intro" id="intro-text">
+  <p>In the latter decades of the nineteenth century and the opening years of the twentieth, the Dominion of Canada witnessed a most remarkable transformation in the character of its public leisure. Sports once confined to informal pastures and frozen ponds were codified, organized, and elevated to the status of national institutions. From Dr. James Naismith's invention of basketball, to the creation of the Stanley Cup and the rise of organized soccer, Canadians helped shape a sporting culture that continues to thrive today.</p>
+  <div class="col-rule"></div>
+  <p>The primary sources consulted, club minutebooks, newspaper accounts, personal published memoirs, and official correspondence , provide an unusually direct window into the era. Lord Stanley's letter of intent, the by-laws of the Ottawa Bicycle Club, and the original thirteen rules published in <em>The Triangle</em> all survive to speak plainly across the years. Each milestone below may be expanded to reveal its source record.</p>
+</div>
+
+<!-- ═══ ALL SPORTS ═══ -->
+<section class="sport-section active" id="all-sports">
+  <div style="height:24px"></div>
+  <div class="sport-block"><div class="sport-block-head"><span class="sport-mini-label">🏀</span><h2>Basketball</h2></div><div class="maple-divider">· · ·</div><div class="timeline" id="basketball-tl-mini"></div></div>
+  <div class="sport-block"><div class="sport-block-head"><span class="sport-mini-label">⚽</span><h2>Association Football</h2></div><div class="maple-divider">· · ·</div><div class="timeline" id="soccer-tl-mini"></div></div>
+</section>
+
+<!-- ═══ BASKETBALL ═══ -->
+<section class="sport-section" id="basketball">
+  <div class="section-header">
+    <div class="sport-label">🏀 Basketball</div>
+    <h2>Naismith's Invention:<br>Peach Baskets &amp; Thirteen Rules</h2>
+    <p class="section-intro">A Canadian physician training in Massachusetts devised the game in a single afternoon. Within three years, his countrymen had carried it home across the border through the YMCA network.</p>
+  </div>
+  <div class="timeline" id="basketball-tl"></div>
+</section>
+
+<!-- ═══ SOCCER ═══ -->
+<section class="sport-section" id="soccer">
+  <div class="section-header">
+    <div class="sport-label">⚽ Soccer</div>
+    <h2>Association Football<br>Takes Root</h2>
+    <p class="section-intro">From the formation of British Columbia's governing body in 1891 to Galt F.C.'s Olympic gold and the founding of a national association, organized soccer in Canada came of age within a single generation.</p>
+  </div>
+  <div class="timeline" id="soccer-tl"></div>
+</section>
+
+<!-- ═══ THEN VS NOW ═══ -->
+<section class="sport-section" id="summary">
+  <div class="section-header">
+    <div class="sport-label">📜 The Official Record</div>
+    <h2>Then vs. Now</h2>
+    <p class="section-intro">Each past milestone is set against its modern counterpart , expand either card to read the full source record.</p>
+  </div>
+
+  <!-- BASKETBALL -->
+  <div class="sport-comparison">
+    <div class="sport-label-row">
+      <span class="sport-icon-lg">🏀</span>
+      <span class="sport-name-lg">Basketball</span>
+    </div>
+    <div class="maple-divider">· · ·</div>
+
+    <div class="comparison-grid">
+
+      <div class="milestone-col past">
+        <div class="era-badge past">1891 · Then</div>
+        <div class="tvn-milestone" id="tvn-bb-past" onclick="toggleTvn('tvn-bb-past')">
+          <div class="tvn-header">
+            <div class="tvn-left">
+              <div class="tvn-year">1891</div>
+              <div class="tvn-title">The Invention of Basketball</div>
+              <span class="tvn-tag">Origin · Springfield</span>
+            </div>
+            <div class="tvn-toggle">▼</div>
+          </div>
+          <div class="tvn-body">
+            <div class="tvn-inner">
+              <div class="detail-card">
+                <h4>Description</h4>
+                <p>Canadian Dr. James Naismith, a graduate of McGill University, invented the game to provide a safe indoor activity for his students during the winter months. The original game used 13 basic rules, a soccer ball, and two peach baskets , with no dribbling allowed. The ball could only be moved via passing, and matches were typically played 9-versus-9.</p>
+              </div>
+              <div class="detail-card source-card">
+                <h4>Primary Source</h4>
+                <div class="source-doc">The Original 13 Rules , The Triangle, Springfield College</div>
+                <p class="source-detail-text">James Naismith, a 31-year-old graduate student from Canada, invented the game at Springfield College under Luther Halsey Gulick. The rules were first published in the school newspaper, The Triangle, on January 15, 1892.</p>
+                <div class="source-date-badge">January 15, 1892</div>
+                <div class="source-url-row">🔗 <a href="https://springfield.edu/about/birthplace-of-basketball" target="_blank" rel="noopener">springfield.edu/about/birthplace-of-basketball</a></div>
+              </div>
+              <div class="milestone-image-wrap">
+                <img src="Dr._james_naismith.jpg.webp" alt="Dr. James Naismith, inventor of basketball, c. 1891">
+                <div class="milestone-image-caption">Dr. James Naismith, inventor of basketball, c. 1891.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vs-divider"><div class="vs-badge">vs</div></div>
+
+      <div class="milestone-col present">
+        <div class="era-badge present">2026 · Now</div>
+        <div class="tvn-milestone" id="tvn-bb-present" onclick="toggleTvn('tvn-bb-present')">
+          <div class="tvn-header">
+            <div class="tvn-left">
+              <div class="tvn-year">2026</div>
+              <div class="tvn-title">Raptors Playoff Basketball</div>
+              <span class="tvn-tag">Present Day · Professional</span>
+            </div>
+            <div class="tvn-toggle">▼</div>
+          </div>
+          <div class="tvn-body">
+            <div class="tvn-inner">
+              <div class="detail-card">
+                <h4>Description</h4>
+                <p>Basketball has grown from a small indoor game into one of the world's most popular sports, played by over 300 million people. Modern rules allow complex dribbling and the game is played 5-versus-5. The Toronto Raptors represent Canada in the NBA, inspiring new generations of players across the country.</p>
+              </div>
+              <div class="detail-card source-card">
+                <h4>Primary Source</h4>
+                <div class="source-doc">Raptors vs Cavaliers Game 7 Highlights</div>
+                <p class="source-detail-text">Highlights from the Toronto Raptors' 114–102 playoff loss to the Cleveland Cavaliers on May 3, 2026, demonstrating the popularity and high level of modern professional basketball in Canada.</p>
+                <div class="source-date-badge">May 3, 2026</div>
+                <div class="source-url-row">🔗 <a href="https://www.nba.com/raptors/videos/playoffs-raptors-vs-cavaliers-game-highlights-rd1-gm7-may-03-2026" target="_blank" rel="noopener">nba.com/raptors</a></div>
+              </div>
+              <div class="milestone-video-wrap">
+                <video controls preload="metadata">
+                  <source src="Raptors.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                <div class="milestone-video-label">Toronto Raptors playoff basketball in 2026.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="key-change">
+      <h4>Key Change</h4>
+      <p>From 9-versus-9 with no dribbling in a Springfield gymnasium to a 300-million-player global sport with Canadian professional franchises competing at the highest level , Naismith's 13 rules became the foundation of a worldwide institution.</p>
+    </div>
+  </div>
+
+  <!-- SOCCER -->
+  <div class="sport-comparison">
+    <div class="sport-label-row">
+      <span class="sport-icon-lg">⚽</span>
+      <span class="sport-name-lg">Association Football</span>
+    </div>
+    <div class="maple-divider">· · ·</div>
+
+    <div class="comparison-grid">
+
+      <div class="milestone-col past">
+        <div class="era-badge past">1904 · Then</div>
+        <div class="tvn-milestone" id="tvn-soc-past" onclick="toggleTvn('tvn-soc-past')">
+          <div class="tvn-header">
+            <div class="tvn-left">
+              <div class="tvn-year">1904</div>
+              <div class="tvn-title">Galt F.C. Wins Olympic Gold</div>
+              <span class="tvn-tag">International · St. Louis Olympics</span>
+            </div>
+            <div class="tvn-toggle">▼</div>
+          </div>
+          <div class="tvn-body">
+            <div class="tvn-inner">
+              <div class="detail-card">
+                <h4>Description</h4>
+                <p>Representing Canada at the 1904 St. Louis Olympic Games, Galt F.C. of Ontario defeated two American teams to win Canada's first Olympic soccer gold medal, establishing Galt as the "football capital" of Canada. Early Canadian soccer was fragmented, with "Canadian Rules" permitting hacking and jumping on opponents' backs , far rougher than British rules.</p>
+              </div>
+              <div class="detail-card source-card">
+                <h4>Primary Source</h4>
+                <div class="source-doc">Toronto Mail and Empire , Galt Olympic Victory Report</div>
+                <p class="source-detail-text">Contemporary newspaper accounts from the Toronto Mail and Empire dated November 18, 1904, reporting on the victory and medal ceremony at the office of James W. Sullivan, chief of the Department of Physical Culture.</p>
+                <div class="source-date-badge">November 18, 1904</div>
+                <div class="source-url-row">🔗 <a href="https://www.thecanadianencyclopedia.ca/en/article/soccer" target="_blank" rel="noopener">thecanadianencyclopedia.ca/en/article/soccer</a></div>
+              </div>
+              <div class="milestone-image-wrap">
+                <img src="galt-fc.jpg" alt="Galt Football Club, 1904 Olympic Champions">
+                <div class="milestone-image-caption">Galt Football Club, representing Canada at the 1904 St. Louis Olympics, where they won the gold medal in soccer.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vs-divider"><div class="vs-badge">vs</div></div>
+
+      <div class="milestone-col present">
+        <div class="era-badge present">2026 · Now</div>
+        <div class="tvn-milestone" id="tvn-soc-present" onclick="toggleTvn('tvn-soc-present')">
+          <div class="tvn-header">
+            <div class="tvn-left">
+              <div class="tvn-year">2026</div>
+              <div class="tvn-title">FIFA World Cup Host Nation</div>
+              <span class="tvn-tag">International · World Cup</span>
+            </div>
+            <div class="tvn-toggle">▼</div>
+          </div>
+          <div class="tvn-body">
+            <div class="tvn-inner">
+              <div class="detail-card">
+                <h4>Description</h4>
+                <p>Canada co-hosts the 2026 FIFA World Cup alongside the United States and Mexico. The national team drew 1–1 with Bosnia and Herzegovina, scoring first in the 23rd minute. Soccer is now Canada's top participation sport with nearly one million registered players , overtaking ice hockey among youth and children.</p>
+              </div>
+              <div class="detail-card source-card">
+                <h4>Primary Source</h4>
+                <div class="source-doc">2026 FIFA World Cup , Canada vs Bosnia and Herzegovina Match Statistics</div>
+                <p class="source-detail-text">Match statistics from the FIFA 2026 World Cup group stage, held at BMO Field in Toronto. The result demonstrates Canada's role as both host and competitive participant in the world's most watched sporting event.</p>
+                <div class="source-date-badge">2026</div>
+                <div class="source-url-row">🔗 <a href="https://www.google.com/search?q=canada+vs+bosnia+and+herzegovina+2026+world+cup" target="_blank" rel="noopener">FIFA 2026 World Cup Match Results</a></div>
+              </div>
+              <div class="milestone-image-wrap">
+                <img src="Game-Stats.png" alt="Canada vs Bosnia and Herzegovina FIFA 2026 World Cup match statistics">
+                <div class="milestone-image-caption">Canada vs Bosnia and Herzegovina match statistics from the FIFA 2026 World Cup.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="key-change">
+      <h4>Key Change</h4>
+      <p>From a fragmented sport with rough regional rules and a single Olympic gold to co-hosting the FIFA World Cup with nearly one million registered players , Canada has transformed from an early pioneer into a fully established soccer nation on the world stage.</p>
+    </div>
+  </div>
+
+</section>
+
+</main>
+
+<footer>
+  <div>The Dominion Sporting Record &nbsp;·&nbsp; Historical Archives of Canadian Sport &nbsp;·&nbsp; 1890–1916</div>
+  <div class="footer-rule"></div>
+  <div>Sources: Library and Archives Canada · Canadian Soccer Association · Springfield College · Toronto Mail and Empire · Ottawa Citizen · Canadiana Digital Archives</div>
+  <div class="footer-rule"></div>
+  <div>🍁 &nbsp; Compiled in service of the historical record &nbsp; 🍁</div>
+</footer>
+
+<script>
+const SPORTS = {
+  basketball: {
+    milestones: [
+      {
+        year: "1891",
+        title: "The Invention of Basketball",
+        tag: "Origin · Springfield",
+        description: "Canadian Dr. James Naismith, a graduate of McGill University, invented the game to provide a safe indoor activity for his students during the winter months.",
+        sourceDetail: "The instructor of this class was James Naismith, a 31-year-old graduate student. After graduating from Presbyterian College in Montreal with a theology degree, Naismith embraced his love of athletics and headed to Springfield to study physical education—at that time, a relatively new and unknown academic discipline—under Luther Halsey Gulick, superintendent of physical education at the College and today renowned as the father of physical education and recreation in the United States.",
+        sourceUrl: "https://springfield.edu/about/birthplace-of-basketball",
+        image: "Dr._james_naismith.jpg.webp",
+        caption: "Dr. James Naismith, inventor of basketball, c. 1891."
+      },
+      {
+        year: "1892",
+        title: "The Original 13 Rules Published",
+        tag: "Primary Source",
+        description: "The first official rules of basketball were published in The Triangle, establishing how the game was to be played.",
+        sourceDetail: "As the game itself has evolved, so have the rules, equipment and facilities. The size of the basketball court has varied through history, but it is now regulated by the Federation of International Basketball Associations (FIBA) to a rectangular shape 28 metres long and 15 metres wide. While the dimensions of the court have changed, the height of the basket has remained the same since James Naismith nailed a peach basket 10 feet (3.05m) off the ground along the side of a balcony surrounding the Springfield gym.",
+        sourceDate: "January 15, 1892",
+        sourceUrl: "https://betterbasketball.com.au/rules-history/",
+        image: "Orig.rules-Page-1.png",
+        caption: "The original thirteen rules of basketball as published in The Triangle, January 15, 1892. Springfield College Archives."
+      },
+      {
+        year: "1892–1895",
+        title: "Basketball Introduced to Canada",
+        tag: "YMCA Expansion",
+        description: "Canadians who played in the first basketball games in Springfield brought the sport back to Canada, spreading it through YMCA networks.",
+        sourceDoc: "Basketball: How and When Introduced , T. Duncan Patton",
+        sourceDetail: "Members of the world's first basketball team, Springfield, Mass., 1891. [Front row, left to right]: F.G. MacDonald, W.H. Davis, L.W. Archibald. [Centre row, left to right]: Frank Mahan, Dr. James Naismith",
+        sourceUrl: "https://recherche-collection-search.bac-lac.gc.ca/eng/home/record?idnumber=3652826&app=fonandcol&resource=folderlist&ecopy=c038009-v8",
+        image: "Men's Team.png",
+        caption: "An early Canadian YMCA basketball team, c. 1893–1895. Library and Archives Canada."
+      },
+      {
+        year: "2026",
+        title: "Raptors Playoff Basketball in Modern Canada",
+        tag: "Present Day Basketball",
+        description: "Basketball has grown from a small indoor game invented by Dr. James Naismith into one of the world's most popular sports. Professional teams such as the Toronto Raptors represent Canada on the international stage and inspire new generations of players.",
+        sourceDoc: "Raptors vs Cavaliers Game 7 Highlights",
+        sourceDetail: "Highlights from the Toronto Raptors' 114-102 playoff loss to the Cleveland Cavaliers on May 3, 2026. The game demonstrates the popularity and high level of modern professional basketball in Canada.",
+        sourceDate: "May 3, 2026",
+        sourceUrl: "https://www.nba.com/raptors/videos/playoffs-raptors-vs-cavaliers-game-highlights-rd1-gm7-may-03-2026",
+        video: "Raptors.mp4",
+        videoLabel: "Toronto Raptors playoff basketball in 2026."
+      }
+    ]
+  },
+
+  soccer: {
+    milestones: [
+      {
+        year: "1901",
+        title: "Ontario Association Football League Established",
+        tag: "League Formation",
+        description: "Under the guidance of David Forsyth, Ontario formalized its provincial soccer structure, launching the oldest soccer competition in North America.",
+        sourceDoc: "On-Side: 125 Years of Soccer in Ontario",
+        sourceDetail: "Colin Jose's historical record documents the founding of the Ontario Association Football League and its role in organizing soccer across Ontario.",
+        sourceDate: "1901",
+        sourceUrl: "https://thecanadianencyclopedia.ca/en/article/soccer",
+        image: "Ontario-league.svg",
+        caption: "Early Ontario Association Football League competition, c. 1901."
+      },
+      {
+        year: "1904",
+        title: "Galt F.C. Wins Olympic Gold for Canada",
+        tag: "International Competition",
+        description: "Representing Canada at the 1904 St. Louis Olympic Games, Galt F.C. defeated two American teams to win the country's first Olympic soccer gold medal. The victory helped establish Canada's reputation in international soccer during the early 20th century.",
+        sourceDoc: "Photograph of Galt Football Club, 1904 Olympic Champions",
+        sourceDetail: "This original team photograph shows the Galt Football Club players who represented Canada at the 1904 St. Louis Olympics and won the gold medal. As a photograph taken during the time period, it provides direct visual evidence of Canada's first Olympic soccer champions.",
+        sourceDate: "1904",
+        sourceUrl: "https://www.thecanadianencyclopedia.ca/en/article/soccer",
+        image: "galt-fc.jpg",
+        caption: "Galt Football Club, representing Canada at the 1904 St. Louis Olympics, where they won the gold medal in soccer."
+      },
+      {
+        year: "1914",
+        title: "First National Challenge Cup",
+        tag: "National Competition",
+        description: "Canada held its first truly national club championship tournament. The Norwood Wanderers won the inaugural competition.",
+        sourceDoc: "1914 Canadian National Challenge Cup Records",
+        sourceDetail: "Official tournament records document the first national championship and the Norwood Wanderers' victory.",
+        sourceDate: "1914",
+        sourceUrl: "http://www.canadiansoccerhistory.com/National/National%20Champions%20Connaught%20Cup.html",
+        image: "Connaught-Cup.jpg",
+        caption: "The Connaught Cup, won by Norwood Wanderers"
+      },
+      {
+        year: "2026",
+        title: "FIFA 2026 World Cup in Canada",
+        tag: "World Cup Host & Performance",
+        description: "Canada vs Bosnia and Herzegovina match statistics from the FIFA 2026 World Cup, showcasing Canada's performance in the tournament. It was a draw of 1-1, with Canada scoring first in the 23rd minute and Bosnia equalizing in the 78th minute. The match was held at BMO Field in Toronto, demonstrating Canada's role as a host nation for this prestigious international soccer tournament.",
+        sourceDoc: "2026 FIFA World Cup in Canada",
+        sourceDetail: "",
+        sourceDate: "2026",
+        sourceUrl: "https://www.google.com/search?q=canada+vs+bosnia+and+herzegovina+2026+world+cup",
+        image: "Game-Stats.png",
+        caption: "Canada vs Bosnia and Herzegovina match statistics from the FIFA 2026 World Cup, showcasing Canada's performance in the tournament."
+      }
+    ]
+  },
+};
+
+let milestoneCounter = 0;
+
+function buildMilestoneHTML(m) {
+  const id = 'ms-' + (milestoneCounter++);
+
+  const urlHtml = m.sourceUrl
+    ? `<div class="source-url-row">🔗 <a href="${m.sourceUrl}" target="_blank" rel="noopener">${m.sourceUrl}</a></div>`
+    : `<div class="source-url-row" style="color:var(--aged);font-family:'Special Elite',monospace;font-size:0.65rem;">No link on record</div>`;
+
+  const imageHtml = m.image
+    ? `<div class="milestone-image-wrap">
+         <img src="${m.image}" alt="${m.caption || ''}">
+         ${m.caption ? `<div class="milestone-image-caption">${m.caption}</div>` : ''}
+       </div>`
+    : '';
+
+  const videoHtml = m.video
+    ? `<div class="milestone-video-wrap">
+         <video controls preload="metadata">
+           <source src="${m.video}" type="video/mp4">
+           Your browser does not support the video tag.
+         </video>
+         ${m.videoLabel ? `<div class="milestone-video-label">${m.videoLabel}</div>` : ''}
+       </div>`
+    : '';
+
+  return `
+  <div class="milestone" id="${id}">
+    <div class="milestone-header" onclick="toggleMilestone('${id}')">
+      <div class="milestone-year">${m.year}</div>
+      <div class="milestone-title">
+        <h3>${m.title}</h3>
+        <span class="milestone-tag">${m.tag}</span>
+      </div>
+      <div class="milestone-toggle">▼</div>
+    </div>
+    <div class="milestone-detail">
+      <div class="milestone-detail-inner">
+        <div class="detail-top">
+          <div class="detail-card">
+            <h4>Description</h4>
+            <p>${m.description}</p>
+          </div>
+          <div class="detail-card source-card">
+            <h4>Primary Source</h4>
+            <div class="source-doc">${m.sourceDoc || '—'}</div>
+            <p class="source-detail-text">${m.sourceDetail || ''}</p>
+            <div class="source-date-badge">${m.sourceDate || ''}</div>
+            ${urlHtml}
+          </div>
+        </div>
+        ${imageHtml}
+        ${videoHtml}
+      </div>
+    </div>
+  </div>`;
+}
+
+function buildTimeline(containerId, sportKey) {
+  const el = document.getElementById(containerId);
+  if (!el) return;
+  el.innerHTML = SPORTS[sportKey].milestones.map(buildMilestoneHTML).join('');
+}
+
+function toggleMilestone(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const wasOpen = el.classList.contains('open');
+  el.parentElement.querySelectorAll('.milestone').forEach(s => s.classList.remove('open'));
+  if (!wasOpen) el.classList.add('open');
+}
+
+function toggleTvn(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const wasOpen = el.classList.contains('open');
+  document.querySelectorAll('.tvn-milestone').forEach(c => c.classList.remove('open'));
+  if (!wasOpen) el.classList.add('open');
+}
+
+function showSection(id, btn) {
+  document.querySelectorAll('.sport-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.sport-nav button').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  if (btn) btn.classList.add('active');
+  const intro = document.getElementById('intro-text');
+  if (intro) intro.style.display = (id === 'all-sports') ? '' : 'none';
+}
+
+['basketball', 'soccer'].forEach(key => {
+  buildTimeline(key + '-tl', key);
+  buildTimeline(key + '-tl-mini', key);
+});
+</script>
+</body>
+</html>
