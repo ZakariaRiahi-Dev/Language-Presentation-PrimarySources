@@ -252,6 +252,28 @@ main { max-width: 1100px; margin: 0 auto; padding: 0 16px 80px; }
 .key-change h4 { font-family: 'Special Elite', monospace; font-size: 0.58rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--maple); margin-bottom: 8px; }
 .key-change p { font-size: 0.85rem; color: var(--sepia); line-height: 1.75; font-style: italic; }
 
+/* ── HISTORIAN ── */
+.historian-block {
+  background: rgba(255,255,255,0.35);
+  border: 1px solid var(--parchment-dark);
+  border-left: 3px solid var(--maple);
+  padding: 20px 22px;
+  margin-bottom: 22px;
+}
+.historian-block h4 {
+  font-family: 'Special Elite', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--maple);
+  margin-bottom: 12px;
+}
+.historian-block p {
+  font-size: 0.92rem;
+  line-height: 1.85;
+  color: var(--sepia);
+}
+
 /* ── FOOTER ── */
 footer { background: var(--navy); color: var(--faded); text-align: center; padding: 28px 20px; border-top: 4px double var(--maple); font-family: 'Special Elite', monospace; font-size: 0.65rem; letter-spacing: 0.2em; line-height: 2; }
 .footer-rule { width: 60px; height: 1px; background: var(--maple); margin: 12px auto; }
@@ -318,41 +340,9 @@ footer { background: var(--navy); color: var(--faded); text-align: center; paddi
   <div class="section-header">
     <div class="sport-label">📜 The Official Record</div>
     <h2>Then vs. Now</h2>
-    <p class="section-intro">Each past milestone is set against its modern counterpart , expand either card to read the full source record.</p>
+    <p class="section-intro">Each past milestone is set against its modern counterpart — expand either card to read the full source record.</p>
   </div>
 
-  <!-- ═══ THINKING LIKE A HISTORIAN ═══ -->
-<section class="sport-section" id="historian">
-  <div class="section-header">
-    <div class="sport-label">🧠 Historical Thinking</div>
-    <h2>Cause and Consequence</h2>
-    <p class="section-intro">
-      Using the historical thinking concept of Cause and Consequence to understand how sports developed in Canada between 1890 and 1916 and how those developments continue to influence sports today.
-    </p>
-  </div>
-
-  <div class="detail-card" style="margin-bottom:20px;">
-    <h4>What Specifically Triggered This Development?</h4>
-    <p>
-      During the late 1800s and early 1900s, Canada's growing cities, schools, YMCA programs, and community clubs created a demand for organized recreation. These social changes encouraged the creation and spread of sports such as basketball and soccer.
-    </p>
-  </div>
-
-  <div class="detail-card" style="margin-bottom:20px;">
-    <h4>How Did This Influence Later Events?</h4>
-    <p>
-      Organized leagues, official rules, and national competitions helped sports expand across Canada. Basketball spread from James Naismith's invention into schools and communities, while soccer developed from local clubs into national and international competitions.
-    </p>
-  </div>
-
-  <div class="detail-card" style="margin-bottom:20px;">
-    <h4>Are The Consequences Still Evident Today?</h4>
-    <p>
-      Yes. Modern professional leagues, international tournaments, and Canada's participation in events such as the NBA and FIFA World Cup all trace their roots back to the growth of organized sports during this period. Sports remain an important part of Canadian culture and identity.
-    </p>
-  </div>
-</section>
-  
   <!-- BASKETBALL -->
   <div class="sport-comparison">
     <div class="sport-label-row">
@@ -362,7 +352,6 @@ footer { background: var(--navy); color: var(--faded); text-align: center; paddi
     <div class="maple-divider">· · ·</div>
 
     <div class="comparison-grid">
-
       <div class="milestone-col past">
         <div class="era-badge past">1891 · Then</div>
         <div class="tvn-milestone" id="tvn-bb-past" onclick="toggleTvn('tvn-bb-past')">
@@ -378,11 +367,11 @@ footer { background: var(--navy); color: var(--faded); text-align: center; paddi
             <div class="tvn-inner">
               <div class="detail-card">
                 <h4>Description</h4>
-                <p>Canadian Dr. James Naismith, a graduate of McGill University, invented the game to provide a safe indoor activity for his students during the winter months. The original game used 13 basic rules, a soccer ball, and two peach baskets , with no dribbling allowed. The ball could only be moved via passing, and matches were typically played 9-versus-9.</p>
+                <p>Canadian Dr. James Naismith, a graduate of McGill University, invented the game to provide a safe indoor activity for his students during the winter months. The original game used 13 basic rules, a soccer ball, and two peach baskets — with no dribbling allowed. The ball could only be moved via passing, and matches were typically played 9-versus-9.</p>
               </div>
               <div class="detail-card source-card">
                 <h4>Primary Source</h4>
-                <div class="source-doc">The Original 13 Rules , The Triangle, Springfield College</div>
+                <div class="source-doc">The Original 13 Rules — The Triangle, Springfield College</div>
                 <p class="source-detail-text">James Naismith, a 31-year-old graduate student from Canada, invented the game at Springfield College under Luther Halsey Gulick. The rules were first published in the school newspaper, The Triangle, on January 15, 1892.</p>
                 <div class="source-date-badge">January 15, 1892</div>
                 <div class="source-url-row">🔗 <a href="https://springfield.edu/about/birthplace-of-basketball" target="_blank" rel="noopener">springfield.edu/about/birthplace-of-basketball</a></div>
@@ -433,12 +422,11 @@ footer { background: var(--navy); color: var(--faded); text-align: center; paddi
           </div>
         </div>
       </div>
-
     </div>
 
     <div class="key-change">
       <h4>Key Change</h4>
-      <p>From 9-versus-9 with no dribbling in a Springfield gymnasium to a 300-million-player global sport with Canadian professional franchises competing at the highest level , Naismith's 13 rules became the foundation of a worldwide institution.</p>
+      <p>From 9-versus-9 with no dribbling in a Springfield gymnasium to a 300-million-player global sport with Canadian professional franchises competing at the highest level — Naismith's 13 rules became the foundation of a worldwide institution.</p>
     </div>
   </div>
 
@@ -451,7 +439,6 @@ footer { background: var(--navy); color: var(--faded); text-align: center; paddi
     <div class="maple-divider">· · ·</div>
 
     <div class="comparison-grid">
-
       <div class="milestone-col past">
         <div class="era-badge past">1904 · Then</div>
         <div class="tvn-milestone" id="tvn-soc-past" onclick="toggleTvn('tvn-soc-past')">
@@ -467,11 +454,11 @@ footer { background: var(--navy); color: var(--faded); text-align: center; paddi
             <div class="tvn-inner">
               <div class="detail-card">
                 <h4>Description</h4>
-                <p>Representing Canada at the 1904 St. Louis Olympic Games, Galt F.C. of Ontario defeated two American teams to win Canada's first Olympic soccer gold medal, establishing Galt as the "football capital" of Canada. Early Canadian soccer was fragmented, with "Canadian Rules" permitting hacking and jumping on opponents' backs , far rougher than British rules.</p>
+                <p>Representing Canada at the 1904 St. Louis Olympic Games, Galt F.C. of Ontario defeated two American teams to win Canada's first Olympic soccer gold medal, establishing Galt as the "football capital" of Canada. Early Canadian soccer was fragmented, with "Canadian Rules" permitting hacking and jumping on opponents' backs — far rougher than British rules.</p>
               </div>
               <div class="detail-card source-card">
                 <h4>Primary Source</h4>
-                <div class="source-doc">Toronto Mail and Empire , Galt Olympic Victory Report</div>
+                <div class="source-doc">Toronto Mail and Empire — Galt Olympic Victory Report</div>
                 <p class="source-detail-text">Contemporary newspaper accounts from the Toronto Mail and Empire dated November 18, 1904, reporting on the victory and medal ceremony at the office of James W. Sullivan, chief of the Department of Physical Culture.</p>
                 <div class="source-date-badge">November 18, 1904</div>
                 <div class="source-url-row">🔗 <a href="https://www.thecanadianencyclopedia.ca/en/article/soccer" target="_blank" rel="noopener">thecanadianencyclopedia.ca/en/article/soccer</a></div>
@@ -502,11 +489,11 @@ footer { background: var(--navy); color: var(--faded); text-align: center; paddi
             <div class="tvn-inner">
               <div class="detail-card">
                 <h4>Description</h4>
-                <p>Canada co-hosts the 2026 FIFA World Cup alongside the United States and Mexico. The national team drew 1–1 with Bosnia and Herzegovina, scoring first in the 23rd minute. Soccer is now Canada's top participation sport with nearly one million registered players , overtaking ice hockey among youth and children.</p>
+                <p>Canada co-hosts the 2026 FIFA World Cup alongside the United States and Mexico. The national team drew 1–1 with Bosnia and Herzegovina, scoring first in the 23rd minute. Soccer is now Canada's top participation sport with nearly one million registered players — overtaking ice hockey among youth and children.</p>
               </div>
               <div class="detail-card source-card">
                 <h4>Primary Source</h4>
-                <div class="source-doc">2026 FIFA World Cup , Canada vs Bosnia and Herzegovina Match Statistics</div>
+                <div class="source-doc">2026 FIFA World Cup — Canada vs Bosnia and Herzegovina Match Statistics</div>
                 <p class="source-detail-text">Match statistics from the FIFA 2026 World Cup group stage, held at BMO Field in Toronto. The result demonstrates Canada's role as both host and competitive participant in the world's most watched sporting event.</p>
                 <div class="source-date-badge">2026</div>
                 <div class="source-url-row">🔗 <a href="https://www.google.com/search?q=canada+vs+bosnia+and+herzegovina+2026+world+cup" target="_blank" rel="noopener">FIFA 2026 World Cup Match Results</a></div>
@@ -519,15 +506,46 @@ footer { background: var(--navy); color: var(--faded); text-align: center; paddi
           </div>
         </div>
       </div>
-
     </div>
 
     <div class="key-change">
       <h4>Key Change</h4>
-      <p>From a fragmented sport with rough regional rules and a single Olympic gold to co-hosting the FIFA World Cup with nearly one million registered players , Canada has transformed from an early pioneer into a fully established soccer nation on the world stage.</p>
+      <p>From a fragmented sport with rough regional rules and a single Olympic gold to co-hosting the FIFA World Cup with nearly one million registered players — Canada has transformed from an early pioneer into a fully established soccer nation on the world stage.</p>
     </div>
   </div>
 
+</section>
+
+<!-- ═══ HISTORIAN ═══  (now a proper top-level section) -->
+<section class="sport-section" id="historian">
+  <div class="section-header">
+    <div class="sport-label">🧠 Historical Thinking</div>
+    <h2>Cause and Consequence</h2>
+    <p class="section-intro">
+      Using the historical thinking concept of Cause and Consequence to understand how sports developed in Canada between 1890 and 1916 and how those developments continue to influence sports today.
+    </p>
+  </div>
+
+  <div class="historian-block">
+    <h4>What Specifically Triggered This Development?</h4>
+    <p>
+      During the late 1800s and early 1900s, Canada's growing cities, schools, YMCA programs, and community clubs created a demand for organized recreation. These social changes encouraged the creation and spread of sports such as basketball and soccer. Urban expansion brought people together in new ways, and institutions like the YMCA actively sought structured activities to promote physical health and moral character among young men and women.
+    </p>
+  </div>
+
+  <div class="historian-block">
+    <h4>How Did This Influence Later Events?</h4>
+    <p>
+      Organized leagues, official rules, and national competitions helped sports expand across Canada. Basketball spread from James Naismith's invention in Springfield directly into Canadian schools and communities through the YMCA network. Soccer developed from local club competitions in Ontario and British Columbia into national challenge cups and international Olympic competition. Each formalized structure — a written rulebook, a provincial association, a national trophy — created the scaffolding upon which the next generation of athletes and administrators could build.
+    </p>
+  </div>
+
+  <div class="historian-block">
+    <h4>Are The Consequences Still Evident Today?</h4>
+    <p>
+      Yes. Modern professional leagues, international tournaments, and Canada's participation in events such as the NBA and the FIFA World Cup all trace their roots back to the growth of organized sports during this period. The Toronto Raptors exist because Naismith's thirteen rules were codified and carried north. Canada's role as a 2026 FIFA World Cup host nation is the direct legacy of a country that began organizing soccer associations in the 1890s and earned Olympic gold in 1904. Sports remain an important part of Canadian culture, identity, and national pride.
+    </p>
+  </div>
 </section>
 
 </main>
@@ -549,7 +567,9 @@ const SPORTS = {
         title: "The Invention of Basketball",
         tag: "Origin · Springfield",
         description: "Canadian Dr. James Naismith, a graduate of McGill University, invented the game to provide a safe indoor activity for his students during the winter months.",
-        sourceDetail: "The instructor of this class was James Naismith, a 31-year-old graduate student. After graduating from Presbyterian College in Montreal with a theology degree, Naismith embraced his love of athletics and headed to Springfield to study physical education—at that time, a relatively new and unknown academic discipline—under Luther Halsey Gulick, superintendent of physical education at the College and today renowned as the father of physical education and recreation in the United States.",
+        sourceDoc: "The Original 13 Rules — The Triangle, Springfield College",
+        sourceDetail: "The instructor of this class was James Naismith, a 31-year-old graduate student. After graduating from Presbyterian College in Montreal with a theology degree, Naismith embraced his love of athletics and headed to Springfield to study physical education under Luther Halsey Gulick, superintendent of physical education at the College.",
+        sourceDate: "January 15, 1892",
         sourceUrl: "https://springfield.edu/about/birthplace-of-basketball",
         image: "Dr._james_naismith.jpg.webp",
         caption: "Dr. James Naismith, inventor of basketball, c. 1891."
@@ -559,7 +579,8 @@ const SPORTS = {
         title: "The Original 13 Rules Published",
         tag: "Primary Source",
         description: "The first official rules of basketball were published in The Triangle, establishing how the game was to be played.",
-        sourceDetail: "As the game itself has evolved, so have the rules, equipment and facilities. The size of the basketball court has varied through history, but it is now regulated by the Federation of International Basketball Associations (FIBA) to a rectangular shape 28 metres long and 15 metres wide. While the dimensions of the court have changed, the height of the basket has remained the same since James Naismith nailed a peach basket 10 feet (3.05m) off the ground along the side of a balcony surrounding the Springfield gym.",
+        sourceDoc: "The Triangle — Springfield College School Newspaper",
+        sourceDetail: "As the game itself has evolved, so have the rules, equipment and facilities. While the dimensions of the court have changed, the height of the basket has remained the same since James Naismith nailed a peach basket 10 feet (3.05m) off the ground along the side of a balcony surrounding the Springfield gym.",
         sourceDate: "January 15, 1892",
         sourceUrl: "https://betterbasketball.com.au/rules-history/",
         image: "Orig.rules-Page-1.png",
@@ -570,8 +591,8 @@ const SPORTS = {
         title: "Basketball Introduced to Canada",
         tag: "YMCA Expansion",
         description: "Canadians who played in the first basketball games in Springfield brought the sport back to Canada, spreading it through YMCA networks.",
-        sourceDoc: "Basketball: How and When Introduced , T. Duncan Patton",
-        sourceDetail: "Members of the world's first basketball team, Springfield, Mass., 1891. [Front row, left to right]: F.G. MacDonald, W.H. Davis, L.W. Archibald. [Centre row, left to right]: Frank Mahan, Dr. James Naismith",
+        sourceDoc: "Basketball: How and When Introduced — T. Duncan Patton",
+        sourceDetail: "Members of the world's first basketball team, Springfield, Mass., 1891. [Front row, left to right]: F.G. MacDonald, W.H. Davis, L.W. Archibald. [Centre row, left to right]: Frank Mahan, Dr. James Naismith.",
         sourceUrl: "https://recherche-collection-search.bac-lac.gc.ca/eng/home/record?idnumber=3652826&app=fonandcol&resource=folderlist&ecopy=c038009-v8",
         image: "Men's Team.png",
         caption: "An early Canadian YMCA basketball team, c. 1893–1895. Library and Archives Canada."
@@ -582,7 +603,7 @@ const SPORTS = {
         tag: "Present Day Basketball",
         description: "Basketball has grown from a small indoor game invented by Dr. James Naismith into one of the world's most popular sports. Professional teams such as the Toronto Raptors represent Canada on the international stage and inspire new generations of players.",
         sourceDoc: "Raptors vs Cavaliers Game 7 Highlights",
-        sourceDetail: "Highlights from the Toronto Raptors' 114-102 playoff loss to the Cleveland Cavaliers on May 3, 2026. The game demonstrates the popularity and high level of modern professional basketball in Canada.",
+        sourceDetail: "Highlights from the Toronto Raptors' 114–102 playoff loss to the Cleveland Cavaliers on May 3, 2026. The game demonstrates the popularity and high level of modern professional basketball in Canada.",
         sourceDate: "May 3, 2026",
         sourceUrl: "https://www.nba.com/raptors/videos/playoffs-raptors-vs-cavaliers-game-highlights-rd1-gm7-may-03-2026",
         video: "Raptors.mp4",
@@ -609,9 +630,9 @@ const SPORTS = {
         year: "1904",
         title: "Galt F.C. Wins Olympic Gold for Canada",
         tag: "International Competition",
-        description: "Representing Canada at the 1904 St. Louis Olympic Games, Galt F.C. defeated two American teams to win the country's first Olympic soccer gold medal. The victory helped establish Canada's reputation in international soccer during the early 20th century.",
+        description: "Representing Canada at the 1904 St. Louis Olympic Games, Galt F.C. defeated two American teams to win the country's first Olympic soccer gold medal.",
         sourceDoc: "Photograph of Galt Football Club, 1904 Olympic Champions",
-        sourceDetail: "This original team photograph shows the Galt Football Club players who represented Canada at the 1904 St. Louis Olympics and won the gold medal. As a photograph taken during the time period, it provides direct visual evidence of Canada's first Olympic soccer champions.",
+        sourceDetail: "This original team photograph shows the Galt Football Club players who represented Canada at the 1904 St. Louis Olympics and won the gold medal.",
         sourceDate: "1904",
         sourceUrl: "https://www.thecanadianencyclopedia.ca/en/article/soccer",
         image: "galt-fc.jpg",
@@ -621,25 +642,25 @@ const SPORTS = {
         year: "1914",
         title: "First National Challenge Cup",
         tag: "National Competition",
-        description: "Canada held its first truly national club championship tournament. The Norwood Wanderers won the inaugural competition. https://www.fifa.com/en/watch/5ekSKA6XJZqv9Fag9pI7sH?cid=(p_go-box)(c_fwc)(sc_aramco-h-fwc26)(ssc_fwc-2026)(ma_3)",
+        description: "Canada held its first truly national club championship tournament. The Norwood Wanderers won the inaugural competition.",
         sourceDoc: "1914 Canadian National Challenge Cup Records",
         sourceDetail: "Official tournament records document the first national championship and the Norwood Wanderers' victory.",
         sourceDate: "1914",
         sourceUrl: "http://www.canadiansoccerhistory.com/National/National%20Champions%20Connaught%20Cup.html",
         image: "Connaught-Cup.jpg",
-        caption: "The Connaught Cup, won by Norwood Wanderers"
+        caption: "The Connaught Cup, won by Norwood Wanderers."
       },
       {
         year: "2026",
         title: "FIFA 2026 World Cup in Canada",
         tag: "World Cup Host & Performance",
-        description: "Canada vs Bosnia and Herzegovina match statistics from the FIFA 2026 World Cup, showcasing Canada's performance in the tournament. It was a draw of 1-1, with Canada scoring first in the 23rd minute and Bosnia equalizing in the 78th minute. The match was held at BMO Field in Toronto, demonstrating Canada's role as a host nation for this prestigious international soccer tournament.",
-        sourceDoc: "2026 FIFA World Cup in Canada",
-        sourceDetail: "",
+        description: "Canada co-hosts the 2026 FIFA World Cup alongside the United States and Mexico. The national team drew 1–1 with Bosnia and Herzegovina, scoring first in the 23rd minute.",
+        sourceDoc: "2026 FIFA World Cup — Canada vs Bosnia and Herzegovina",
+        sourceDetail: "Match statistics from the FIFA 2026 World Cup group stage, held at BMO Field in Toronto.",
         sourceDate: "2026",
         sourceUrl: "https://www.google.com/search?q=canada+vs+bosnia+and+herzegovina+2026+world+cup",
         image: "Game-Stats.png",
-        caption: "Canada vs Bosnia and Herzegovina match statistics from the FIFA 2026 World Cup, showcasing Canada's performance in the tournament."
+        caption: "Canada vs Bosnia and Herzegovina match statistics from the FIFA 2026 World Cup."
       }
     ]
   },
